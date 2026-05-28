@@ -602,11 +602,13 @@ footer em { color: var(--bordeaux-mist); font-style:normal; }
 .contact-inner { max-width: 720px; }
 
 /* Global section max-width wrapper */
-section > *:not(.about-image-col) {
+section > *:not(.about-image-col):not(.about-layout):not(.about-expanded) {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
+.about-layout { width: 100%; max-width: 100%; }
+.about-expanded { width: 100%; max-width: 100%; }
 
 /* About image — cap height on large screens */
 .about-text-col p {
