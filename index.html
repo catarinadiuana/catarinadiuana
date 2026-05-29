@@ -802,8 +802,12 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
   }
   .hero::before { display: none; }
   .hero-line { margin: 0 auto 1.8rem; }
-  .hero-lead { margin: 0 auto 2rem; }
+  .hero-lead { margin: 0 auto 2rem; font-size: clamp(1.2rem, 1.8vw, 1.5rem); }
   .hero-cta { align-self: center; }
+  .hero-logo { width: 260px; }
+  .hero-title { font-size: clamp(2rem, 2.8vw, 2.4rem); }
+  .hero-subtitle { font-size: 0.85rem; }
+  .hero-line { height: 55px; }
 }
 .hero-photo-col { display: none; }
 @media(min-width: 901px) {
