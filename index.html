@@ -862,6 +862,37 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
 .about-text-col { padding-top: 4rem; padding-bottom: 1rem; }
 .about-expanded { padding-top: 0; padding-bottom: 4rem; }
 
+
+/* FIXED MOBILE CTA */
+.mobile-cta-bar {
+  display: none;
+}
+@media(max-width: 900px) {
+  .mobile-cta-bar {
+    display: block;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 0.85rem 1.5rem;
+    background: rgba(247,243,237,0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(107,45,62,0.12);
+  }
+  .mobile-cta-bar a {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    background: var(--bordeaux);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 1px;
+    transition: background 0.3s;
+  }
+  .mobile-cta-bar a:hover { background: var(--bordeaux-deep); }
+}
 /* FADE */
 .fi { opacity:0; transform:translateY(28px); transition: opacity 1s ease, transform 1s ease; }
 .fi.v { opacity:1; transform:translateY(0); }
@@ -869,6 +900,9 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
 .long-para.v { opacity:1; transform:translateY(0); }
 
 /* RESPONSIVE */
+@media(max-width: 900px) {
+  body { padding-bottom: 4.5rem; }
+}
 @media(max-width:768px){
   .hamburger { display: flex; }
   .nav-links { display: none; }
@@ -1246,5 +1280,10 @@ function toggleAbout() {
 }
 
 </script>
+
+<div class="mobile-cta-bar">
+  <a href="https://calendar.app.google/HRX7b8sYB1AEBzd5A" target="_blank"
+     data-pt="Marcar uma sessão" data-en="Book a session" data-es="Reservar una sesión">Marcar uma sessão</a>
+</div>
 </body>
 </html>
