@@ -873,7 +873,8 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
 @media(max-width: 900px) {
 }
 @media(max-width:768px){
-  .hamburger { display: flex; }
+  .hamburger { display: flex; margin-right: 0.5rem; }
+  .nav { padding-right: clamp(1.8rem,7vw,3rem); }
   .nav-links { display: none; }
   .about { grid-template-columns:1fr; }
   .formation-grid { grid-template-columns:1fr; gap:2rem; }
