@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -900,7 +900,7 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
 </style>
 <script>
 (function(){
-  var lang = (navigator.language || navigator.userLanguage || 'pt').toLowerCase().slice(0,2);
+  var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0,2);
   var titles = {
     en: 'Catarina Diuana Constantino — Clinical Psychologist &amp; Psychotherapist',
     es: 'Catarina Diuana Constantino — Psicóloga Clínica y Psicoterapeuta'
@@ -909,11 +909,10 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
     en: 'Integrative and experiential psychotherapy in Lisbon and online. Portuguese · English · Spanish',
     es: 'Psicoterapia integrativa y experiencial en Lisboa y online. Portugués · Inglés · Español'
   };
-  if (lang !== 'pt') {
-    var t = titles[lang]; var d = descs[lang];
-    if (t) document.title = t;
-    if (d) { var m = document.querySelector('meta[name="description"]'); if(m) m.setAttribute('content', d); }
-  }
+  var allTitles = Object.assign({pt: document.title}, titles);
+var allDescs = Object.assign({pt: document.querySelector('meta[name="description"]') ? document.querySelector('meta[name="description"]').getAttribute('content') : ''}, descs);
+  if (allTitles[lang]) document.title = allTitles[lang];
+  if (allDescs[lang]) { var m = document.querySelector('meta[name="description"]'); if(m) m.setAttribute('content', allDescs[lang]); }
 })();
 </script>
 <script type="application/ld+json">
@@ -953,8 +952,8 @@ section > *:not(.about-image-col):not(.about-layout):not(.about-expanded):not(.h
       <a href="#contact" data-pt="Contacto" data-en="Contact" data-es="Contacto">Contacto</a>
     </div>
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
     </div>
   </div>
@@ -1196,6 +1195,7 @@ function setLang(l){
     btn.querySelector('span').textContent = isOpen ? btn.getAttribute('data-'+l+'-less') : btn.getAttribute('data-'+l+'-more');
   }
 }
+setLang("en");
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("v");});},{threshold:0.08});
 document.querySelectorAll(".fi, .long-para").forEach(el=>obs.observe(el));
 
